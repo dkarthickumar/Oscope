@@ -91,6 +91,7 @@ int main(void)
     U1TXREG = 'a';  // Transmit one character
     
     while(1); 
+    //test
 } 
 
 
