@@ -1,5 +1,5 @@
 /* 
- * File:   pwm.c
+ * File:   uart.c
  * Author: Karthic Kumar
  *
  * Created on February 25, 2017, 11:36 AM
@@ -12,7 +12,7 @@
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 #define FP 40000000
 #define BAUDRATE 3000000
-#define BRGVAL ((FP/BAUDRATE)/16)-1
+#define BRGVAL ((FP/BAUDRATE)/4)-1
 
 void __attribute__((__interrupt__,no_auto_psv)) _U1TXInterrupt(void)
 {
