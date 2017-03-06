@@ -39,10 +39,10 @@ U1STAbits.UTXISEL1 = 0; // Interrupt after one TX character is transmitted
 IEC0bits.U1TXIE = 1;    // Enable UART TX interrupt
 U1MODEbits.UARTEN = 1;  // Enable UART
 U1STAbits.UTXEN = 1;    // Enable UART TX
-
-RPINR18bits.U1RXR = 1;
-
-RPOR1bits.RP2R = 3;
+//Rx on RP4
+RPINR18bits.U1RXR = 4;
+//TX on RP3
+RPOR1bits.RP3R = 3;
 
 }
 
