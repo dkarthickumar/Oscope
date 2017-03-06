@@ -26,8 +26,6 @@ void init_UART()
 {
 // Configure oscillator as needed
     
-    
-    
 U1MODEbits.STSEL = 0;   //1-Stop bit
 U1MODEbits.PDSEL = 0;   //No Parity, 8-Data bits
 U1MODEbits.ABAUD = 0;   //Auto-Baud disabled
