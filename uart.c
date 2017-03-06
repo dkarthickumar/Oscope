@@ -10,9 +10,10 @@
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
-#define FP 40000000
-#define BAUDRATE 3000000
-#define BRGVAL ((FP/BAUDRATE)/4)-1
+//Fcy = (Fosc/2); Fosc = 80MHz
+#define FCY 40000000
+#define BAUDRATE 115200
+#define BRGVAL ((FCY/BAUDRATE)/4)-1
 
 void __attribute__((__interrupt__,no_auto_psv)) _U1TXInterrupt(void)
 {
