@@ -5,7 +5,6 @@
  * Created on February 25, 2017, 11:36 AM
  */
 
-
 // DSPIC33FJ16GS502 Configuration Bit Settings
 
 // FBS
@@ -17,8 +16,8 @@
 #pragma config GSS = OFF                // General Segment Code Protection (User program memory is not code-protected)
 
 // FOSCSEL
-#pragma config FNOSC = FRCDIVN          // Oscillator Source Selection (Internal Fast RC (FRC) oscillator with postscaler)
-#pragma config IESO = ON                // Internal External Switch Over Mode (Start up device with FRC, then automatically switch to user-selected oscillator source)
+#pragma config FNOSC = FRCPLL           // Oscillator Source Selection (Internal Fast RC (FRC) with PLL)
+#pragma config IESO = OFF               // Internal External Switch Over Mode (Start up device with user-selected oscillator source)
 
 // FOSC
 #pragma config POSCMD = NONE            // Primary Oscillator Source (Primary oscillator disabled)
@@ -30,7 +29,7 @@
 #pragma config WDTPOST = PS32768        // Watchdog Timer Postscaler (1:32,768)
 #pragma config WDTPRE = PR128           // WDT Prescaler (1:128)
 #pragma config WINDIS = OFF             // Watchdog Timer Window (Watchdog Timer in Non-Window mode)
-#pragma config FWDTEN = ON              // Watchdog Timer Enable (Watchdog timer always enabled)
+#pragma config FWDTEN = OFF             // Watchdog Timer Enable (Watchdog timer enabled/disabled by user software)
 
 // FPOR
 #pragma config FPWRT = PWR128           // POR Timer Value (128ms)
@@ -38,7 +37,6 @@
 // FICD
 #pragma config ICS = PGD1               // Comm Channel Select (Communicate on PGC1/EMUC1 and PGD1/EMUD1)
 #pragma config JTAGEN = OFF             // JTAG Port Enable (JTAG is disabled)
-
 
 #define DELAY_105uS asm volatile ("REPEAT, #4201"); Nop();  // 105uS delay
 
@@ -65,8 +63,8 @@ int main(void)
 	CLKDIVbits.PLLPOST=0;   				// N1 = 2  
 	CLKDIVbits.PLLPRE=0;    				// N2 = 2  
 
-    	__builtin_write_OSCCONH(0x01);			// New Oscillator FRC w/ PLL  
-    	__builtin_write_OSCCONL(0x01);  		// Enable Switch  
+//   	__builtin_write_OSCCONH(0x01);			// New Oscillator FRC w/ PLL  
+//    	__builtin_write_OSCCONL(0x01);  		// Enable Switch  
       
 	while(OSCCONbits.COSC != 0b001);		// Wait for new Oscillator to become FRC w/ PLL    
     	while(OSCCONbits.LOCK != 1);			// Wait for Pll to Lock  
