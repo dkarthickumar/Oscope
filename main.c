@@ -60,7 +60,7 @@ int main(void)
 {
 	// Configure PLL prescaler, PLL postscaler, PLL divisor  
     // setup internal clock for 80MHz/40MIPS
-    // 7.37/2=3.685*43=158.455/2=79.2275
+    // 7.37/2=3.685*43=158.455/2=79.2275 (~80MHz)
 	PLLFBD=41; 							// M = PLLFBD + 2  
 	CLKDIVbits.PLLPOST=0;   				// N1 = 2  
 	CLKDIVbits.PLLPRE=0;    				// N2 = 2  
