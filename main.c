@@ -21,7 +21,7 @@
 
 // FOSC
 #pragma config POSCMD = NONE            // Primary Oscillator Source (Primary oscillator disabled)
-#pragma config OSCIOFNC = OFF           // OSC2 Pin Function (OSC2 is clock output)
+#pragma config OSCIOFNC = ON           // OSC2 Pin Function (OSC2 is clock output)
 #pragma config IOL1WAY = ON             // Peripheral Pin Select Configuration (Allow only one reconfiguration)
 #pragma config FCKSM = CSDCMD           // Clock Switching and Monitor (Clock switching and Fail-Safe Clock Monitor are disabled, Mon Disabled)
 
@@ -76,9 +76,10 @@ int main(void)
 	
 	while(ACLKCONbits.APLLCK != 1);		// Wait for Auxiliary PLL to Lock  
 
+    init_UART();                        // UART Setup
 	init_PWM();							// PWM Setup		
 	init_ADC();							// ADC Setup 
-	init_UART();                        // UART Setup
+	
     
 	TRISBbits.TRISB4  = 0;		    	//RB4 as output
 
